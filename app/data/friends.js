@@ -45,8 +45,8 @@ var friends = [
     id: uuid()
   },
   {
-    name: "ttt",
-    photo: "sdksajskdf",
+    name: "GECHO",
+    photo: "https://cdn.pixabay.com/photo/2017/05/09/21/49/gecko-2299365_1280.jpg",
     scores: ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"],
     id: uuid()
   }

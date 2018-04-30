@@ -26,3 +26,5 @@ server/yarn.lock
 client/yarn.lock
 /.vscode
 /workingData
+/old
+/junk

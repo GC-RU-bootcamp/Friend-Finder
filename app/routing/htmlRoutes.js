@@ -16,25 +16,40 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/home", function(req, res) {
+    // console.log("/home");
+    console.log("/home : " + JSON.stringify(req.params));
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
   app.get("/survey", function(req, res) {
+    // console.log("/survey");
+    console.log("/survey : " +JSON.stringify(req.params));
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
 
-  app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/survey.html"));
-  });
+  // app.get("/survey", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/survey.html"));
+  // });
 
   // app.get("/images/:imgfile", function(req, res) {
-  app.get("/images/smiley.png", function(req, res) {
+  app.get("/images/:imgfile", function(req, res) {
+    // console.log("/image")
+    console.log("/image : "+JSON.stringify(req.params));
     var imgfile = req.params.imgfile;
-    res.sendFile(path.join(__dirname, "../public/assets/images/"+ imgfile));
+     res.sendFile(path.join(__dirname, "../public/images/"+ imgfile));
+    // res.sendFile(path.join(__dirname, "../public/images/smiley.png"));
   });
 
   // If no matching route is found default to home
   app.get("/", function(req, res) {
+    // console.log("/")
+    console.log("/ :"+JSON.stringify(req.params));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+  });
+
+  app.get("*", function(req, res) {
+    // console.log("*")
+    console.log("* :"+JSON.stringify(req.params));
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 };

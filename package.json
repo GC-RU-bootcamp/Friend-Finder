@@ -1,0 +1,27 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "Friend-Finder",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GC-RU-bootcamp/Friend-Finder.git"
+  },
+  "author": "Gary Cender",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GC-RU-bootcamp/Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/GC-RU-bootcamp/Friend-Finder#readme"
+}

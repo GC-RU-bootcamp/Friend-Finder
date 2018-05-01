@@ -5,6 +5,7 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
+var favicon = require('serve-favicon');
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -20,8 +21,10 @@ var PORT = process.env.PORT || 8080;
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
+// app.use(express.favicon(__dirname + '/images/smiley.png'));
+// app.use(favicon(path.join(__dirname,'public','images','smiley.png')));
 // ================================================================================
 // ROUTER
 // The below points our server to a series of "route" files.

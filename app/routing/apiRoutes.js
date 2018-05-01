@@ -29,6 +29,10 @@ module.exports = function(app) {
     res.json(friends);
   });
 
+  app.get("/api/friends", function(req, res) {
+    res.json(friends);
+  });
+
   // app.get("/api/waitlist", function(req, res) {
   //   res.json(waitListData);
   // });
@@ -46,11 +50,33 @@ module.exports = function(app) {
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
 
+    var person = friends.body2Friend(req.body);
+    var mbti_score = friends.mbti(person.scores);
     simularPerson = friends.matchAndAdd(req.body);
+    simularPerson.mbti_score = person.mbti_score;
+    simularPerson.mbti_image = person.mbti_image;
 
     // return best match
     if (simularPerson) {
       res.json(simularPerson);
+    }
+    else {
+      res.json(false);
+    }
+  });
+
+  app.post("/api/mbti", function(req, res) {
+    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+    // It will do this by sending out the value "true" have a table
+    // req.body is available since we're using the body-parser middleware
+
+    // simularPerson = friends.matchAndAdd(req.body);
+    var person = friends.body2Friend(req.body);
+    var mbti_score = friends.mbti(person.scores);
+
+    // return best match
+    if (mbti_score) {
+      res.json(mbti_score);
     }
     else {
       res.json(false);
